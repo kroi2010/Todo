@@ -1,0 +1,110 @@
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.top-section {
+  flex-grow: 0;
+  padding: 2em;
+}
+
+.bottom-section {
+  flex-grow: 1;
+}
+
+button {
+  border: 1px solid #888;
+  margin: 0;
+  padding: 0.3em 0.5em 0.2em;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  background-color: #ddd;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+button:not(:disabled):hover, button:focus {
+  cursor: pointer;
+  background-color: #bbb;
+}
+
+button:active {
+  background-color: #aaa;
+}
+
+button:disabled {
+  color: #888;
+}
+
+.todo {
+  display: flex;
+  width: 30em;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  border: 1px solid #888;
+  margin-bottom: 0.5em;
+}
+
+.todo.checked .todo-title {
+  color: #888;
+  font-style: italic;
+}
+
+input {
+  border: 1px solid #888;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  outline: none;
+}
+
+input[type="text"] {
+  padding: 0.3em 0.5em 0.2em;
+  width: auto;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.checkbox {
+  font-size: 2em;
+}
+
+.checkbox > input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox > input[type="checkbox"] + label::before {
+  content: "\2610";
+}
+
+.checkbox > input[type="checkbox"]:checked + label::before {
+  content: "\2611";
+}
+
+.container span::before,
+.container span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
