@@ -1,6 +1,7 @@
 .app {
   display: flex;
   width: 100vw;
+  min-width: 500px;
   height: 100vh;
   flex-direction: column;
   align-items: center;
@@ -8,6 +9,16 @@
   font-size: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  background: radial-gradient(ellipse at top, #303a3d 0%, #0e2025 100%);
+}
+
+.new-todo{
+  display: flex;
+  flex-direction: row;
+}
+
+.no-todos{
+  color: #ffffff;
 }
 
 .top-section {
@@ -20,68 +31,93 @@
 }
 
 button {
-  border: 1px solid #888;
-  margin: 0;
-  padding: 0.3em 0.5em 0.2em;
+  padding: 0 25px;
   width: auto;
-  overflow: visible;
-  background: transparent;
-  background-color: #ddd;
-  color: inherit;
+  background-color: #319fc6;
+  border: none;
+  border-radius: 0 2px 2px 0;
+  color: #ffffff;
   font: inherit;
-  line-height: normal;
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-}
-
-button:not(:disabled):hover, button:focus {
+  line-height: 40px;
   cursor: pointer;
-  background-color: #bbb;
-}
-
-button:active {
-  background-color: #aaa;
-}
-
-button:disabled {
-  color: #888;
+  max-height: 40px;
 }
 
 .todo {
   display: flex;
-  width: 30em;
+  max-width: 30em;
+  min-width: 450px;
+  width: 80vw;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em;
-  border: 1px solid #888;
+  padding: 0.8em;
   margin-bottom: 0.5em;
+  background: #ffffff; 
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.todo::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #319fc6;
+}
+
+.todo.checked::before {
+  background: #5dbb56;
+}
+
+.todo::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  left: 8px;
+  top: calc(50% - 1px);
+  background: #319fc6;
+}
+
+.todo.checked::after {
+  background: #5dbb56;
+}
+
+.todo > button{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 15px;
+  font-size: 15px;
+  background: #858585;
+  color: #ffffff;
+  text-shadow: 0 0 0 #ffffff;
+}
+
+.todo .todo-title {
+  max-width: 68%;
 }
 
 .todo.checked .todo-title {
   color: #888;
   font-style: italic;
+  text-decoration: line-through;
 }
 
 input {
-  border: 1px solid #888;
-  margin: 0;
-  background: transparent;
-  color: inherit;
+  box-sizing: border-box;
+  border: 2px solid #319fc6;
+  background: #ffffff;
+  color: #333333;
   font: inherit;
-  line-height: normal;
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
+  line-height: 40px;
+  height: 40px;
+  border-radius: 2px 0 0 2px;
   outline: none;
-}
-
-input[type="text"] {
-  padding: 0.3em 0.5em 0.2em;
-  width: auto;
-  -webkit-appearance: none;
-  appearance: none;
 }
 
 .checkbox {
@@ -93,11 +129,21 @@ input[type="text"] {
 }
 
 .checkbox > input[type="checkbox"] + label::before {
-  content: "\2610";
+  content: '';
+  position: absolute;
+  transform: rotateZ(45deg);
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: 2px solid #319fc6;
+  left: 50px;
+  top: calc(50% - 10px);
+  cursor: pointer;
 }
 
 .checkbox > input[type="checkbox"]:checked + label::before {
-  content: "\2611";
+  border-color: #5dbb56;
+  background: #5dbb56;
 }
 
 .container span::before,

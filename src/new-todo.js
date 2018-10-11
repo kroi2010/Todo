@@ -3,20 +3,27 @@ import PropTypes from "prop-types";
 
 export class NewTodo extends React.Component {
   state = {
-    todoTitle: ""
+    todoTitle: ''
   }
 
   render() {
     const {todoTitle} = this.state;
-
+    // to submit a form button should have type="submit"
     return (
       <form className="new-todo" onSubmit={this.onSubmit}>
         <input
           type="text"
           className="new-todo"
           onChange={this.onChange}
-          value={todoTitle}/>
-        <button type="button" disabled={!todoTitle}>Add Todo</button>
+          value={todoTitle}
+        />
+
+        <button
+          type="submit"
+          disabled={!todoTitle}
+        >
+          Add Todo
+        </button>
       </form>
     );
   }
@@ -26,10 +33,10 @@ export class NewTodo extends React.Component {
   }
 
   onSubmit = (evt) => {
-    this
-      .props
-      .addTodo(this.state.todoTitle);
-    this.setState({todoTitle: ""})
+    evt.preventDefault(); //prevent page from refreshing
+
+    this.props.addTodo(this.state.todoTitle);
+    this.setState({todoTitle: ''})
   }
 }
 
