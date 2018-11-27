@@ -49,7 +49,7 @@ class App extends React.Component {
       this.setState({
         todos: [...this.state.todos, { id, title, done: false }]
       }, () => {
-        alert(`There are now ${this.state.todos.length} todos.`);
+       // alert(`There are now ${this.state.todos.length} todos.`);
       });
   }
 
@@ -74,7 +74,7 @@ class App extends React.Component {
     this.setState({
       todos: [...someNewArray]
     }, () => {
-      alert(`There are now ${this.state.todos.length} todos.`);
+      //alert(`There are now ${this.state.todos.length} todos.`);
     })
   }
 }
